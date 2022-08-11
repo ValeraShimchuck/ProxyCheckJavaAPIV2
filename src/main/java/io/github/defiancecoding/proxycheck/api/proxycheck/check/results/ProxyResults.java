@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class ProxyResults
 {
   private String status;
+  private String statusMessage;
   private String node;
   private String ip;
   private String asn;
@@ -107,7 +108,15 @@ public class ProxyResults
   public String getContinent() {
     return this.continent;
   }
-  
+
+  public String getStatusMessage() {
+    return statusMessage;
+  }
+
+  public void setStatusMessage(String statusMessage) {
+    this.statusMessage = statusMessage;
+  }
+
   public void setContinent(String continent) {
     this.continent = continent;
   }

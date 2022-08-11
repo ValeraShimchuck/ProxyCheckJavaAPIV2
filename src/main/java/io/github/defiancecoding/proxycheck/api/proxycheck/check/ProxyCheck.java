@@ -86,6 +86,7 @@ public class ProxyCheck
       JsonNode rawNode = getRawJsonNode(ip);
       
       result.setStatus(rawNode.get("status").asText());
+      if (rawNode.get("message") != null) result.setStatusMessage(rawNode.get("message").asText());
       result.setNode(rawNode.get("node").asText());
       result.setQueryTime(rawNode.get("query time").asText());
       
