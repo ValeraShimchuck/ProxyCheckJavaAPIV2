@@ -19,15 +19,15 @@ public class ProxyCheckExample {
      */
 
     private static void setupProxycheckSettings(){
-        settings.setApi_key("APIKey");
-        settings.setCheck_vpn(true);
-        settings.setCheck_asn(true);
-        settings.setCheck_node(true);
-        settings.setCheck_time(true);
+        settings.setApiKey("APIKey");
+        settings.setCheckVpn(true);
+        settings.setCheckAsn(true);
+        settings.setCheckNode(true);
+        settings.setCheckTime(true);
         settings.setRiskLevel(2);
-        settings.setCheck_port(true);
-        settings.setCheck_seen(true);
-        settings.setMax_detection_days(7);
+        settings.setCheckPort(true);
+        settings.setCheckSeen(true);
+        settings.setMaxDetectionDays(7);
         settings.setVer("Ver");
         settings.setTag("ProxyCheckJavaAPI");
 

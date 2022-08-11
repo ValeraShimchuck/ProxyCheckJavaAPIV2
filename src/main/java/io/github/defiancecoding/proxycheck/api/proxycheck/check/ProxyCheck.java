@@ -9,8 +9,16 @@ import io.github.defiancecoding.proxycheck.api.webconnection.HTTPQuery;
 
 public class ProxyCheck
 {
-  private final ProxyCheckSettings settings = new ProxyCheckSettings();
+  private final ProxyCheckSettings settings;
   private final HTTPQuery httpQuery = new HTTPQuery();
+
+  public ProxyCheck(ProxyCheckSettings settings) {
+    this.settings = settings;
+  }
+
+  public ProxyCheck() {
+    this(new ProxyCheckSettings());
+  }
 
   /**
    * Builds the API URL based on selected settings
@@ -20,21 +28,25 @@ public class ProxyCheck
    */
   private String urlBuilder(String ip) {
     String baseURL = "http://proxycheck.io/v2/" + ip;
-    baseURL = baseURL + "?key=" + this.settings.getApi_key();
-    baseURL = baseURL + "&vpn=" + (this.settings.isCheck_vpn() ? 1 : 0);
-    baseURL = baseURL + "&asn=" + (this.settings.isCheck_asn() ? 1 : 0);
-    baseURL = baseURL + "&node=" + (this.settings.isCheck_node() ? 1 : 0);
-    baseURL = baseURL + "&time=" + (this.settings.isCheck_port() ? 1 : 0);
+    baseURL = baseURL + "?key=" + this.settings.getApiKey();
+    baseURL = baseURL + "&vpn=" + (this.settings.isCheckVpn() ? 1 : 0);
+    baseURL = baseURL + "&asn=" + (this.settings.isCheckAsn() ? 1 : 0);
+    baseURL = baseURL + "&node=" + (this.settings.isCheckNode() ? 1 : 0);
+    baseURL = baseURL + "&time=" + (this.settings.isCheckPort() ? 1 : 0);
     baseURL = baseURL + "&risk=" + this.settings.getRiskLevel();
-    baseURL = baseURL + "&port=" + (this.settings.isCheck_port() ? 1 : 0);
-    baseURL = baseURL + "&seen=" + (this.settings.isCheck_seen() ? 1 : 0);
-    baseURL = baseURL + "&time=" + (this.settings.isCheck_time() ? 1 : 0);
-    baseURL = baseURL + "&days=" + this.settings.getMax_detection_days();
+    baseURL = baseURL + "&port=" + (this.settings.isCheckPort() ? 1 : 0);
+    baseURL = baseURL + "&seen=" + (this.settings.isCheckSeen() ? 1 : 0);
+    baseURL = baseURL + "&time=" + (this.settings.isCheckTime() ? 1 : 0);
+    baseURL = baseURL + "&days=" + this.settings.getMaxDetectionDays();
     if (this.settings.getVer() != null) {
       baseURL = baseURL + "&ver=" + this.settings.getVer();
     }
     baseURL = baseURL + "&tag=" + this.settings.getTag();
     return baseURL;
+  }
+
+  public ProxyCheckSettings getSettings() {
+    return settings;
   }
 
   /**

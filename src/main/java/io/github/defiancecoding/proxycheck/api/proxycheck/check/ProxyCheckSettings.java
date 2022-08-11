@@ -2,96 +2,96 @@ package io.github.defiancecoding.proxycheck.api.proxycheck.check;
 
 public class ProxyCheckSettings
 {
-  private String api_key = "6t0l02-643w48-111876-2m1i08";
-  private boolean check_vpn = true;
-  private boolean check_asn = true;
-  private boolean check_node = true;
-  private boolean check_time = true;
-  private int check_risk = 1;
-  private boolean check_port = true;
-  private boolean check_seen = true;
-  private int max_detection_days = 7;
+  private String apiKey = "";
+  private boolean checkVpn = true;
+  private boolean checkAsn = true;
+  private boolean checkNode = true;
+  private boolean checkTime = true;
+  private int checkRisk = 1;
+  private boolean checkPort = true;
+  private boolean checkSeen = true;
+  private int maxDetectionDays = 7;
   private String ver;
   private String tag = "Defiant-Proxy-Detection-System";
 
 
   /**
    * Sets the APIKey for use within queries with https://proxycheck.io
-   * @return api_key String - APIKey for https://proxycheck.io
+   * @return apiKey String - APIKey for https://proxycheck.io
    */
-  public String getApi_key() {
-    return this.api_key;
+  public String getApiKey() {
+    return this.apiKey;
   }
 
   /**
    * @param api_key String - APIKey for https://proxycheck.io
    */
-  public void setApi_key(String api_key) {
-    this.api_key = api_key;
+  public void setApiKey(String api_key) {
+    this.apiKey = api_key;
   }
 
   /**
    * @return boolean - should VPNChecks run?
    */
-  public boolean isCheck_vpn() {
-    return this.check_vpn;
+  public boolean isCheckVpn() {
+    return this.checkVpn;
   }
 
   /**
    * When the vpn flag is supplied we will perform a VPN check on the IP Address and present the result to you.
-   * @param check_vpn boolean - Should VPNChecks run?
+   * @param checkVpn boolean - Should VPNChecks run?
    */
-  public void setCheck_vpn(boolean check_vpn) {
-    this.check_vpn = check_vpn;
+  public void setCheckVpn(boolean checkVpn) {
+    this.checkVpn = checkVpn;
   }
 
   /**
    * @return boolean - should ASN be queried?
    */
-  public boolean isCheck_asn() {
-    return this.check_asn;
+  public boolean isCheckAsn() {
+    return this.checkAsn;
   }
 
   /**
    * When the asn flag is supplied we will perform an ASN check on the IP Address and present you with the provider name, ASN, Continent, Country, Country ISOCode, Region, Region ISOCode, City (if it's in a city) and Lat/Long for the IP Address.
    *
    * Provider, Country, Region and City names will be encoded using utf8 for maximum compatibility.
-   * @param check_asn boolean - should ASN be queried?
+   * @param checkAsn boolean - should ASN be queried?
    */
-  public void setCheck_asn(boolean check_asn) {
-    this.check_asn = check_asn;
+  public void setCheckAsn(boolean checkAsn) {
+    this.checkAsn = checkAsn;
   }
 
   /**
    * @return boolean - should node be queried?
    */
-  public boolean isCheck_node() {
-    return this.check_node;
+  public boolean isCheckNode() {
+    return this.checkNode;
   }
 
   /**
    * When the node flag is supplied we will display which node within our cluster answered your API call.
    * This is only really needed for diagnosing problems with our support staff.
-   * @param check_node boolean - Should node be queried?
+   * @param checkNode boolean - Should node be queried?
    */
-  public void setCheck_node(boolean check_node) {
-    this.check_node = check_node;
+  public void setCheckNode(boolean checkNode) {
+    this.checkNode = checkNode;
   }
 
   /**
    * Get if the API should tell you the time it took to query the address
    * @return boolean should the time flag be enabled?
    */
-  public boolean isCheck_time() {
-    return this.check_time;
+  public boolean isCheckTime() {
+    return this.checkTime;
   }
 
   /**
    * When the time flag is supplied we will display how long this query took to be answered by our API excluding network overhead.
-   * @param check_time boolean - should the time flag be enabled
+   * @param checkTime boolean - should the time flag be enabled
    */
-  public void setCheck_time(boolean check_time) {
-    this.check_time = check_time;
+  public void setCheckTime(boolean checkTime) {
+    this.checkTime = checkTime;
   }
 
   /**
@@ -99,7 +99,7 @@ public class ProxyCheckSettings
    * @return the risk/strictness level
    */
   public int getRiskLevel() {
-    return this.check_risk;
+    return this.checkRisk;
   }
 
   /**
@@ -111,42 +111,42 @@ public class ProxyCheckSettings
    * When the risk flag is set to 2 we will still provide you with the above risk score,
    * but you'll also receive individual counts for each type of attack we witnessed this IP performing across our customer
    * network and our own honeypots within the days you specify by the days flag.
-   * @param check_risk the risk/strictness level
+   * @param checkRisk the risk/strictness level
    */
-  public void setRiskLevel(int check_risk) {
-    this.check_risk = check_risk;
+  public void setRiskLevel(int checkRisk) {
+    this.checkRisk = checkRisk;
   }
 
   /**
    * Get if the API should tell you the active port the proxy is using
    * @return boolean - should the port flag be enabled?
    */
-  public boolean isCheck_port() {
-    return this.check_port;
+  public boolean isCheckPort() {
+    return this.checkPort;
   }
 
   /**
    * When the port flag is supplied we will display to you the port number we saw this IP Address operating a proxy server on.
-   * @param check_port boolean - should the port flag be enabled?
+   * @param checkPort boolean - should the port flag be enabled?
    */
-  public void setCheck_port(boolean check_port) {
-    this.check_port = check_port;
+  public void setCheckPort(boolean checkPort) {
+    this.checkPort = checkPort;
   }
 
   /**
    * Get if the API should return the last time there was activity on the address
    * @return should the seen flag be enabled?
    */
-  public boolean isCheck_seen() {
-    return this.check_seen;
+  public boolean isCheckSeen() {
+    return this.checkSeen;
   }
 
   /**
    * When the seen flag is supplied we will display to you the most recent time we saw this IP Address operating as a proxy server.
-   * @param check_seen boolean - should the seen flag be enabled?
+   * @param checkSeen boolean - should the seen flag be enabled?
    */
-  public void setCheck_seen(boolean check_seen) {
-    this.check_seen = check_seen;
+  public void setCheckSeen(boolean checkSeen) {
+    this.checkSeen = checkSeen;
   }
 
 
@@ -156,15 +156,15 @@ public class ProxyCheckSettings
    * By default, without this flag supplied we search within the past 7 days.
    * @return int - days to restrict results to?
    */
-  public int getMax_detection_days() {
-    return this.max_detection_days;
+  public int getMaxDetectionDays() {
+    return this.maxDetectionDays;
   }
 
   /**
-   * @param max_detection_days int - days to restrict results to?
+   * @param maxDetectionDays int - days to restrict results to?
    */
-  public void setMax_detection_days(int max_detection_days) {
-    this.max_detection_days = max_detection_days;
+  public void setMaxDetectionDays(int maxDetectionDays) {
+    this.maxDetectionDays = maxDetectionDays;
   }
 
   /**
@@ -176,10 +176,10 @@ public class ProxyCheckSettings
 
   /**
    * When the tag flag is supplied we will tag your query with the message you supply. You can supply your tag using the POST method, and we recommend you do so.
-   * @param set_tag String - tag to add along queries for easier identification.
+   * @param setTag String - tag to add along queries for easier identification.
    */
-  public void setTag(String set_tag) {
-    this.tag = set_tag;
+  public void setTag(String setTag) {
+    this.tag = setTag;
   }
 
   /**

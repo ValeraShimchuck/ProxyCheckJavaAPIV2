@@ -181,15 +181,15 @@ public class ProxyCheck {
 
     private static io.github.defiancecoding.proxycheck.api.proxycheck.check.ProxyCheck proxyCheck = new io.github.defiancecoding.proxycheck.api.proxycheck.check.ProxyCheck();
     private static ProxyCheckSettings settings = new ProxyCheckSettings();
-    
-    private static void setupProxycheckSettings(){
-        settings.setApi_key("APIKey");
-        settings.setCheck_vpn(true);
-        settings.setCheck_asn(true);
-        settings.setCheck_node(true);
-        settings.setCheck_time(true);
+
+    private static void setupProxycheckSettings() {
+        settings.setApiKey("APIKey");
+        settings.setCheckVpn(true);
+        settings.setCheckAsn(true);
+        settings.setCheckNode(true);
+        settings.setCheckTime(true);
         settings.setRiskLevel(2);
-        settings.setCheck_port(true);
+        settings.setCheckPort(true);
         settings.setCheck_seen(true);
         settings.setMax_detection_days(7);
         settings.setVer("Ver");
@@ -199,21 +199,21 @@ public class ProxyCheck {
 
     public static void main(String args[]) throws IOException {
         setupProxycheckSettings();
-        
+
         // Get reponse as a Json but in String format
         String jsonReponse = proxyCheck.getLookupResponse("1.1.1.1");
-        
+
         // Get response from api as a JsonNode
         JsonNode rawJson = proxyCheck.getRawJsonNode("1.1.1.1");
-        
+
         // Breakdown JsonNode into getters and setters
         ProxyResults results = proxyCheck.getAndMapResults("1.1.1.1");
-        
+
         String ip = results.getIp();
         String asn = results.getAsn();
         String proxy = results.getProxy();
         //.... keep going
-        
+
     }
 
 }
